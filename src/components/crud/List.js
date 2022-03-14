@@ -19,7 +19,7 @@ const List = () => {
                 {products.map((e, i) => (
                     <Col key={i} >
                         <Card>
-                            <Card.Img variant="top" src="https://as01.epimg.net/showroom/imagenes/2019/08/05/portada/1565002152_332946_1565004415_noticia_normal.jpg" />
+                            <Card.Img variant="top" src={e.imagen} />
                             <Button variant="outline-info" onClick={handleShow}>  Detalle    </Button>
                             <Card.Body>
                                 <h4>{e.nombre}</h4>
@@ -41,7 +41,7 @@ const List = () => {
                         <Modal.Header >
                             <Modal.Title>{products.nombre}</Modal.Title>
                         </Modal.Header  >
-                        <Card.Img variant="top" src="https://as01.epimg.net/showroom/imagenes/2019/08/05/portada/1565002152_332946_1565004415_noticia_normal.jpg" />
+                        <Card.Img variant="top" src={e.imagen} />
                         <Modal.Body  >
                             <h4>{e.nombre}</h4>
                             <br></br>

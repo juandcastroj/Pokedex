@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import { addAsync } from '../../redux/actions/actionProducts'
+import { fileUploas } from '../helpers/fileUploas';
 
 const Add = () => {
 
@@ -14,15 +15,16 @@ const Add = () => {
        nombre: '',
        codigo: '',
        descripcion: '', 
-       precio: ''
+       precio: '',
+       imagen: ''
 
     })
-    const { nombre, codigo, descripcion, precio } = values
+    const { nombre, codigo, descripcion, precio, imagen } = values
 
     const handleSubmit =(e)=>{
         e.preventDefault()
         dispatch(addAsync(values))
-        //console.log(nombre, codigo, descripcion, precio)
+        //console.log(nombre, codigo, descripcion, precio, imagen)
         
         reset()
         alert("PRODUCTO AGREGADO")
@@ -32,6 +34,17 @@ const Add = () => {
       },2000)
     }
 
+    const handleFileChange =(e)=>{
+      const file = e.target.files[0]
+      fileUploas(file)
+          .then(resp =>{
+             values.imagen = resp
+              console.log(resp)
+          })
+          .catch(error =>{
+              console.log(error.message)
+          })
+  }
 
 
   return (
@@ -49,6 +62,9 @@ const Add = () => {
 
                     <Form.Label>Precio</Form.Label>
                     <Form.Control type="text" name="precio" value={precio} onChange={handleInputChange} />
+
+                    <Form.Label>Imagen</Form.Label>
+                    <Form.Control type="file" name="imagen" value={imagen} placeholder="Ingrese Foto.jpg" onChange={handleFileChange} />
                 
                 </Form.Group>
 

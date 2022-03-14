@@ -33,7 +33,7 @@ const AppRouter = () => {
   //     }
   //     setChecking(false);
   //   });
-  // }, [dispatch, setChecking, setIsLoggedIn])
+  // }, [ setChecking, setIsLoggedIn])
 
   // if (checking) {
   //   return (
