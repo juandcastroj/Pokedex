@@ -1,9 +1,7 @@
 import React from 'react'
 import AppRouter from './routes/AppRouter'
 
-const AmazonasApp = () => {
-
-
+const PokedexApp = () => {
 
   return (
     <div>
@@ -12,4 +10,4 @@ const AmazonasApp = () => {
   )
 }
 
-export default AmazonasApp
+export default PokedexApp

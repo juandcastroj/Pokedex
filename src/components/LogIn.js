@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import useForm from '../hooks/useForm'
 import { LoginEmailPassword, loginGoogle } from '../redux/actions/actionLogin'
+import './style/style.css'
 
 const LogIn = ( ) => {
 
@@ -32,7 +33,7 @@ const LogIn = ( ) => {
      
 
   return (
-    <div>
+    <div className='Forms' >
         <Form onSubmit={handleSubmit} >
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Correo</Form.Label>
@@ -57,7 +58,7 @@ const LogIn = ( ) => {
                     onChange={handleInputChange}
                      />
             </Form.Group>
-            <Button variant="primary" type="submit"    >
+            <Button variant="warning" type="submit"    >
                 Entrar
             </Button>
 
@@ -65,9 +66,8 @@ const LogIn = ( ) => {
                 <Container
                     className="google-btn"
                  onClick={handleGoogle}
-
-                >
-                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" width="100" />
+                  >
+                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" width="70" />
                    
                 </Container>
             </Container>

@@ -3,9 +3,8 @@ import React from 'react'
 //import { useDispatch } from 'react-redux'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Add from '../components/crud/Add'
-import Header1 from '../components/Header1'
-import Header2 from '../components/Header2'
 import LogIn from '../components/LogIn'
+import Naveg from '../components/Naveg'
 import Register from '../components/Register'
 import Container from '../container/Container'
 //import { LoginEmailPassword } from '../redux/actions/actionLogin'
@@ -45,8 +44,7 @@ const AppRouter = () => {
   return (
 
     <BrowserRouter>
-       <Header1/>
-        <Header2/>
+      <Naveg/>
         <Routes>
                 <Route path="/login" element={<LogIn />} />
                 <Route path="/register" element={<Register />} />

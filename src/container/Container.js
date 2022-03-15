@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import Comments from '../components/Comments'
+import { Link } from 'react-router-dom'
 import List from '../components/crud/List'
-import Footer from '../components/Footer'
-import MainCard from '../components/MainCard'
 import { listProductsAsync } from '../redux/actions/actionProducts'
+import '../components/style/style.css'
 
 
 const Container = () => {
@@ -17,11 +16,9 @@ const Container = () => {
      }, [dispatch])
 
   return (
-    <div>
-        <MainCard/>
+    <div>  
+        <Link to='/login' > Login </Link>
         <List/>
-        <Comments/>
-        <Footer/>
     </div>
   )
 }

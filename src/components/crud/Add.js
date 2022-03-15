@@ -1,10 +1,11 @@
 import React from 'react'
-import { Button, Form } from 'react-bootstrap'
+import { Button, Form, Image } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import { addAsync } from '../../redux/actions/actionProducts'
 import { fileUploas } from '../helpers/fileUploas';
+import '../style/style.css'
 
 const Add = () => {
 
@@ -24,10 +25,9 @@ const Add = () => {
     const handleSubmit =(e)=>{
         e.preventDefault()
         dispatch(addAsync(values))
-        //console.log(nombre, codigo, descripcion, precio, imagen)
-        
+        //console.log(nombre, codigo, descripcion, precio, imagen)       
         reset()
-        alert("PRODUCTO AGREGADO")
+        alert("POKEMON AGREGADO")
 
         setTimeout(() => {
           navigate('/')
@@ -48,7 +48,7 @@ const Add = () => {
 
 
   return (
-    <div>
+    <div className='Forms'  >
          <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Nombre del producto</Form.Label>
@@ -68,8 +68,8 @@ const Add = () => {
                 
                 </Form.Group>
 
-                <Button type="submit" variant='success' > Agregar Producto
-                    {/* <Image width={40} src='https://res.cloudinary.com/danimel/image/upload/v1646016294/anadir_eitgpy.png' /> */}
+                <Button type="submit" variant='success' > Agregar Pokemon
+                    <Image width={40} src='https://res.cloudinary.com/danimel/image/upload/v1646016294/anadir_eitgpy.png' />
                 </Button>
             </Form>
 
