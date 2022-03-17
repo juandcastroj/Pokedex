@@ -1,23 +1,23 @@
 import { types } from "../types/types"
 import { google } from "../../firebase/firebaseConfig";
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
-//asincrona correo
+
 export const LoginEmailPassword = (email, password) => {
 
-    return(dispatch) => {
 
+    return(dispatch) => {
         const auth = getAuth()
         signInWithEmailAndPassword(auth, email, password)
         .then(({ user }) => {
            // console.log("bienvenidoo  " + user.displayName)
-            dispatch(actionLogin(user.uid, user.displayName))
-            alert("bienvenido  " + user.displayName)
+            dispatch(ActionLogin(user.uid, user.displayName))
+            //alert("bienvenido  " + user.displayName)
         })
         .catch((e) => {
-            console.log(e)
-           alert('USUARIO NO ENCONTRADO');
-
+           // console.log(e)
+          // alert('USUARIO NO ENCONTRADO');
         })
 }
 }
@@ -30,9 +30,9 @@ export const loginGoogle = () => {
         const auth = getAuth();
         signInWithPopup(auth, google)
             .then(({ user }) => {
-                dispatch(actionLogin(user.uid, user.displayName))
+                dispatch(ActionLogin(user.uid, user.displayName))
                 //console.log(user)
-                alert("bienvenido  " + user.displayName)
+                //alert("bienvenido  " + user.displayName)
             })
             .catch(e => {
                 console.log(e)
@@ -42,7 +42,16 @@ export const loginGoogle = () => {
 
 
 //sincronica
-export const actionLogin = (id, displayname) => {
+
+
+
+export const ActionLogin = (id, displayname) => {
+
+    const navigate = useNavigate()
+    alert("bienvenido  ")
+    navigate('/')
+
+
     return {
         type: types.login,
         payload: {
@@ -53,19 +62,19 @@ export const actionLogin = (id, displayname) => {
 }
 
 
-//LOGOUT
-//asincrono
+
+
 export const logout = () => {
     return async(dispatch) => {
         const auth = getAuth();
             await signOut(auth);
             dispatch(logoutSincrono());
-            console.log("has cerrado sesión");
+            ;
     }
 }
 
-//sincrono
 export const logoutSincrono = () => {
+    alert("has cerrado sesión")
    return{
        type: types.logout,
    }

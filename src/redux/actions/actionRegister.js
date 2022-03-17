@@ -11,14 +11,13 @@ export const registerEmailPasswName = ( email, password, name ) => {
             await updateProfile(auth.currentUser, {displayName: name})
             dispatch(registerSinc( user.email, user.uid, user.displayName))
             // alert(`bienvenido `+ user.displayName);
-            alert("USUARIO CREADO")
+           // console.log("USUARIO CREADO")
         })
-        .catch(e => {
-            console.log(e);
+        .catch(error => {
+            console.log(error);
         })   
     }
 }
-
 
 
 export const registerSinc = ( email, password, name ) => {

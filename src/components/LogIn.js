@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import useForm from '../hooks/useForm'
 import { LoginEmailPassword, loginGoogle } from '../redux/actions/actionLogin'
 import './style/style.css'
@@ -9,9 +9,8 @@ import './style/style.css'
 const LogIn = ( ) => {
 
     const dispatch = useDispatch()
-    const navigate = useNavigate()
 
-      const [  values, handleInputChange, reset ] = useForm ({
+      const [  values, handleInputChange ] = useForm ({
             email: '' ,
             password: ''        
       })
@@ -20,15 +19,11 @@ const LogIn = ( ) => {
 
       const handleGoogle = () => {
         dispatch(loginGoogle())
-        setTimeout(() => {
-          navigate('/home')
-      },5000)
     }
 
       const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(LoginEmailPassword(email, password))
-        reset()
       }
      
 
@@ -43,16 +38,13 @@ const LogIn = ( ) => {
                     name="email"
                     value={email}
                     onChange={handleInputChange}
-                   
                      />
             </Form.Group>
-
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control
                     type="password"
-                    placeholder="Password"
-                    autoComplete="true"
+                    placeholder="enter Password"
                     name="password"
                     value={password}
                     onChange={handleInputChange}
@@ -61,15 +53,13 @@ const LogIn = ( ) => {
             <Button variant="warning" type="submit"    >
                 Entrar
             </Button>
-
             <Container className="auth__social-networks">
                 <Container
                     className="google-btn"
                  onClick={handleGoogle}
                   >
                         <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" width="70" />
-                   
-                </Container>
+              </Container>
             </Container>
             <Link to="/register">Registrarse</Link>
 

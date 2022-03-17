@@ -3,7 +3,7 @@ import { Button, Form, Image } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
-import { addAsync } from '../../redux/actions/actionProducts'
+import { addAsync } from '../../redux/actions/actionPoke'
 import { fileUploas } from '../helpers/fileUploas';
 import '../style/style.css'
 
@@ -14,13 +14,12 @@ const Add = () => {
 
     const [values, handleInputChange, reset] = useForm({
        nombre: '',
-       codigo: '',
-       descripcion: '', 
-       precio: '',
+       numero: '',
+       tipo: '', 
        imagen: ''
 
     })
-    const { nombre, codigo, descripcion, precio, imagen } = values
+    const { nombre, numero, tipo, imagen } = values
 
     const handleSubmit =(e)=>{
         e.preventDefault()
@@ -31,7 +30,7 @@ const Add = () => {
 
         setTimeout(() => {
           navigate('/')
-      },2000)
+      },2500)
     }
 
     const handleFileChange =(e)=>{
@@ -51,24 +50,21 @@ const Add = () => {
     <div className='Forms'  >
          <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Nombre del producto</Form.Label>
+                    <Form.Label>Nombre del Pokemon</Form.Label>
                     <Form.Control type="text" name="nombre" placeholder="Enter name" value={nombre} onChange={handleInputChange} />
 
-                    <Form.Label>Descripcion</Form.Label>
-                    <Form.Control type="text" name="descripcion" placeholder="Enter description" value={descripcion} onChange={handleInputChange} />
+                    <Form.Label>numero</Form.Label>
+                    <Form.Control type="text" name="numero" placeholder="Enter description" value={numero} onChange={handleInputChange} />
 
-                    <Form.Label>Codigo</Form.Label>
-                    <Form.Control type="text" name="codigo" value={codigo} onChange={handleInputChange} />
-
-                    <Form.Label>Precio</Form.Label>
-                    <Form.Control type="text" name="precio" value={precio} onChange={handleInputChange} />
+                    <Form.Label>tipo</Form.Label>
+                    <Form.Control type="text" name="tipo" value={tipo} onChange={handleInputChange} />
 
                     <Form.Label>Imagen</Form.Label>
                     <Form.Control type="file" name="imagen" value={imagen} placeholder="Ingrese Foto.jpg" onChange={handleFileChange} />
                 
                 </Form.Group>
 
-                <Button type="submit" variant='success' > Agregar Pokemon
+                <Button type="submit" variant='warning' > Agregar Pokemon
                     <Image width={40} src='https://res.cloudinary.com/danimel/image/upload/v1646016294/anadir_eitgpy.png' />
                 </Button>
             </Form>

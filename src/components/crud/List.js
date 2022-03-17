@@ -1,31 +1,26 @@
 import React from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteAsync } from '../../redux/actions/actionProducts'
+import { deleteAsync } from '../../redux/actions/actionPoke'
 import '../style/style.css'
 
 const List = () => {
 
     const dispatch = useDispatch()
-    const { products } = useSelector(store => store.product)
-    //console.log(products);
-
-
+    const { pokemons } = useSelector(store => store.pokemon)
 
     return (
         <div id='cardsPoke' >
             <Row xs={1} md={4} className="g-4">
-                {products.map((e, i) => (
+                {pokemons.map((e, i) => (
                     <Col key={i} >
-                        <Card>
-                            <Card.Img variant="top" src='https://th.bing.com/th/id/OIP.JHt7j0pygnPYZ1HU1Uz_QAHaFj?pid=ImgDet&rs=1' />
-
+                        <Card style={{width: '250px'}}  >
+                            <Card.Img variant="top" src={e.imagen} />
                             <Card.Body>
-                                <h4>pokemon</h4>
-                                <h5>tipo</h5>
-                                <h6>poder</h6>
+                                <h4>{e.nombre}</h4>
+                                <h5># {e.numero}</h5>                                
                                 <Card.Text>
-                                    evolucion
+                                <h6>tipo: {e.tipo}</h6>
                                 </Card.Text>
                                 <Button variant="outline-danger" onClick={() => dispatch(deleteAsync(e.nombre))} > Eliminar  </Button>
                             </Card.Body>

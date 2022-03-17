@@ -6,7 +6,7 @@ export const types = {
     register: 'register'
 }
 
-export const typesProducts = {
+export const typesPoke = {
 
     add: 'add',
     list: 'list',
