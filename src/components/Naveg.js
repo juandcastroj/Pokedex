@@ -22,7 +22,7 @@ const Naveg = () => {
         <div>
             <Navbar bg="dark" expand={false}>
                 <Container fluid>
-                    <a href='/src/container/Container.js'>  <Image src={logo} width='180' /> </a>
+                    <Image src={logo} width='180' /> 
                     <Form className="d-flex">
                         <FormControl
                             type="search"
