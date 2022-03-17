@@ -3,7 +3,6 @@ import { CardPoke } from './CardPoke'
 
 export const CardsCont = ({ results }) => {
 
-
     return (
         <div>
             <ul>
@@ -11,9 +10,7 @@ export const CardsCont = ({ results }) => {
                     results.map(p => (
                         <li key={p.name} > 
                         <CardPoke url={p.url} />
-
-                        </li>
-                 
+                        </li>                 
             ))
                 }
             </ul>

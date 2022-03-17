@@ -10,8 +10,6 @@ export const registerEmailPasswName = ( email, password, name ) => {
         .then( async ({user}) => {
             await updateProfile(auth.currentUser, {displayName: name})
             dispatch(registerSinc( user.email, user.uid, user.displayName))
-            // alert(`bienvenido `+ user.displayName);
-           // console.log("USUARIO CREADO")
         })
         .catch(error => {
             console.log(error);

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import useForm from '../hooks/useForm'
 import { registerEmailPasswName } from '../redux/actions/actionRegister'
 import './style/style.css'
@@ -9,9 +9,8 @@ import './style/style.css'
 const Register = () => {
 
     const dispatch = useDispatch()
-    //const navigate = useNavigate()
 
-    const [  values, handleInputChange, reset ] = useForm({
+    const [  values, handleInputChange ] = useForm({
         name: '',
         email: '',
         password: '',
@@ -22,10 +21,8 @@ const Register = () => {
     const handleSubmitRegister = (e) => {
         e.preventDefault()
         dispatch(registerEmailPasswName(email, password, name))
-        //reset()
          //console.log("USUARIO REGISTRADO")
-        //navigate('/')
-    }
+          }
    
   return (
     <div className='Forms' >

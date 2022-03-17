@@ -1,10 +1,8 @@
 import { types } from "../types/types";
 
-
 export const registerReducer = ( state={}, action  ) => {
 
- 
-    switch (action.type) {
+     switch (action.type) {
         case types.register:
 
         return{
@@ -14,8 +12,5 @@ export const registerReducer = ( state={}, action  ) => {
         }
         default:
             return state
-      
-
     }
-
 }

@@ -3,10 +3,7 @@ import { db } from "../../firebase/firebaseConfig"
 import { typesPoke } from "../types/types"
 
 
-
-//delete
-
-
+//ELIMINAR
 export const deleteAsync = (nombre) => {
     return async (dispatch) => {
 
@@ -21,8 +18,6 @@ export const deleteAsync = (nombre) => {
     }
 }
 
-
-
 export const deleteSinc = (nombre) => {
     return {
         type: typesPoke.delete,
@@ -30,10 +25,7 @@ export const deleteSinc = (nombre) => {
     }
 }
 
-
-
-//list 
-
+//LISTAR
 export const listPokeAsync = () => {
     return async (dispatch) => {
 
@@ -49,7 +41,6 @@ export const listPokeAsync = () => {
     }
 }
 
-
 export const listSinc = (pokemons) => {
 
     return {
@@ -59,11 +50,7 @@ export const listSinc = (pokemons) => {
 }
 
 
-
-
-
-//ADD
-
+//AGREGAR
 export const addAsync = (newPoke) => {
 
     return (dispatch) => {
